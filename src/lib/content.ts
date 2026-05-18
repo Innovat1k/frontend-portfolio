@@ -20,7 +20,7 @@ export const content = {
 
   // Hero Section
   hero: {
-    title: "Développeur Frontend React & UI Engineer",
+    title: "Développeur Frontend React & Next.js",
     subtitle:
       "Je conçois des interfaces web performantes, accessibles et maintenables avec React, TypeScript et Next.js.",
     cta_primary: "Voir mes projets",
@@ -40,6 +40,8 @@ export const content = {
     subtitle:
       "Une sélection de mes réalisations récentes en développement frontend.",
     no_projects: "Aucun projet pour le moment.",
+    slug_title: "Contexte & Réalisation",
+    image: "Capture d'écran"
   },
 
   // Page About (/about)
@@ -76,7 +78,7 @@ export const content = {
   // Metrics & Labels
   metrics: {
     lighthouse: "Lighthouse",
-    performance: "Performance",
+    features: "Fonctionnalités clés",
     bundle_size: "Taille du Bundle",
     seo_score: "SEO Score",
     accessibility: "Accessibilité",
