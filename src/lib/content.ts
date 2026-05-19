@@ -63,8 +63,25 @@ export const content = {
   // Page Contact (/contact)
   contact_page: {
     title: "Contact",
-    subtitle: "Formulaire à implémenter (J5)...",
-    placeholder: "Cette page sera bientôt disponible.",
+    subtitle:
+      "Vous avez un projet ou un poste à pourvoir ? \n\n Discutons de la manière dont je peux contribuer à votre équipe.",
+
+    direct_label: "Contact Direct",
+    direct_email: "Cliquez pour m'écrire",
+    networks_label: "Réseaux",
+
+    form_name_label: "Nom",
+    form_name_placeholder: "Jean Dupont",
+    form_email_label: "Email",
+    form_email_placeholder: "jean@exemple.com",
+    form_message_label: "Message",
+    form_message_placeholder: "Bonjour, je suis intéressé par votre profil...",
+
+    send_button: "Envoyer le message",
+    sending_state: "Envoi en cours...",
+    success_title: "Envoyé !",
+    success_message: "Merci ! Je vous répondrai dans les plus brefs délais.",
+    error_message: "Une erreur est survenue. Veuillez réessayer.",
   },
 
   // Footer
