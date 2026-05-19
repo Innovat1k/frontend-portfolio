@@ -170,3 +170,27 @@
     left: 150%;
   }
 }
+
+/* Overall smooth transition for theme change */
+html {
+  scroll-behavior: smooth;
+}
+
+html.light,
+html.dark,
+html.light body,
+html.dark body {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.light .bg-card,
+html.dark .bg-card,
+html.light .bg-muted,
+html.dark .bg-muted,
+html.light .border-border,
+html.dark .border-border {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}

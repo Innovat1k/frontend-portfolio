@@ -99,6 +99,7 @@ export const content = {
     download_cv: "Télécharger mon CV",
     send_message: "Envoyer le message",
     back: "Retour",
+    toggle_theme: "Changer le thème",
   },
 
   // Metrics & Labels

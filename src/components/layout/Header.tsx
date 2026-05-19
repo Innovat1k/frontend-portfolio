@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { content } from "@/lib/content";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "../ui/theme-toggle";
 
 export default function Header() {
   const [isOpened, setIsOpened] = useState(false);
@@ -37,42 +38,52 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-6 md:flex">
-          <Link
-            href="/projects"
-            className="text-sm font-medium transition-colors hover:text-primary"
+        <div className="hidden items-center gap-4 md:flex">
+          <nav className="flex items-center gap-6">
+            <Link
+              href="/projects"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
+              {content.nav.projects}
+            </Link>
+
+            <Link
+              href="/about"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
+              {content.nav.about}
+            </Link>
+
+            <Button asChild variant="outline" size="sm">
+              <Link href="/contact">{content.nav.contact}</Link>
+            </Button>
+          </nav>
+
+          {/* Theme Toggle Desktop */}
+          <ThemeToggle />
+        </div>
+
+        {/* Mobile Actions */}
+        <div className="flex items-center gap-2 md:hidden">
+          {/* Theme Toggle Mobile */}
+          <ThemeToggle />
+
+          {/* Mobile Button */}
+          <button
+            onClick={() => setIsOpened(!isOpened)}
+            aria-label="Toggle Menu"
+            className="
+              flex h-11 w-11 items-center justify-center
+              rounded-xl border border-border/50
+              bg-background/80 shadow-sm
+              backdrop-blur-xl
+              transition-colors
+              hover:bg-muted
+            "
           >
-            {content.nav.projects}
-          </Link>
-
-          <Link
-            href="/about"
-            className="text-sm font-medium transition-colors hover:text-primary"
-          >
-            {content.nav.about}
-          </Link>
-
-          <Button asChild variant="outline" size="sm">
-            <Link href="/contact">{content.nav.contact}</Link>
-          </Button>
-        </nav>
-
-        {/* Mobile Button */}
-        <button
-          onClick={() => setIsOpened(!isOpened)}
-          aria-label="Toggle Menu"
-          className="
-            flex h-11 w-11 items-center justify-center
-            rounded-xl border border-border/50
-            bg-background/80 shadow-sm
-            backdrop-blur-xl
-            transition-colors
-            hover:bg-muted
-            md:hidden
-          "
-        >
-          {isOpened ? <X size={20} /> : <Menu size={20} />}
-        </button>
+            {isOpened ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

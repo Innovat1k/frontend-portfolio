@@ -13,11 +13,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       className="group flex flex-col h-full bg-card border border-border/40 rounded-2xl overflow-hidden 
       hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 ease-out hover:-translate-y-1 relative"
     >
-      {/* Zone Image */}
+      {/* Image area with subtle texture */}
       <div className="relative h-48 bg-linear-to-br from-muted via-muted/60 to-background flex items-center justify-center overflow-hidden border-b border-border/30">
+        {/* Very subtle background grid */}
         <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-size-[14px_24px]" />
 
-        <div className="absolute inset-0 bg-radial from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* Sunset glow on hover */}
+        <div className="absolute inset-0 bg-linear-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
         <span className="relative z-10 text-[11px] font-bold tracking-wider uppercase text-primary bg-primary/10 border border-primary/20 backdrop-blur-md px-3 py-1 rounded-md shadow-xs">
           {project.tags[0]}
