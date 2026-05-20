@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { content } from "@/lib/content";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import ScrollButton from "@/components/ui/ScrollButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,6 +41,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1 relative">{children}</main>
           <Footer />
+          <ScrollButton />
         </ThemeProvider>
       </body>
     </html>
