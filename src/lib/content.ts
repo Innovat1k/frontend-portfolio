@@ -5,7 +5,6 @@ export const content = {
     title: "Portfolio | Développeur Frontend React",
     description:
       "Développeur Frontend spécialisé en React, TypeScript et interfaces performantes. Découvrez mes projets et mon expertise.",
-    author: "Ton Nom",
     keywords:
       "React, TypeScript, Frontend, Next.js, Portfolio, Développeur Web",
   },
@@ -45,15 +44,19 @@ export const content = {
   },
 
   // Page About (/about)
-  about_page: {
+  about: {
     title: "À Propos",
+    about_title: "Qui suis-je ?",
     subtitle:
-      "Développeur passionné, orienté résultats et expérience utilisateur.",
+      "Développeur passionné, orienté résultats et attentif à l’expérience utilisateur.",
     bio: "Je suis un développeur frontend passionné par la création d’interfaces modernes, interactives et orientées expérience utilisateur. Je travaille principalement avec React et TypeScript, avec un intérêt particulier pour les applications SaaS, les outils de productivité et les systèmes interactifs. \n\n J’accorde une attention particulière à l’architecture frontend, à l’accessibilité et à la fluidité des interactions.",
     availability:
-      "Disponible immédiatement pour CDI Remote ou missions Freelance.",
-    location: "Madagascar (Remote OK) | GMT+3",
-    languages: "Français (Natif) | Anglais (Courant)",
+      "Disponible immédiatement pour un CDI en remote ou des missions freelance.",
+    availability_title: "Disponibilité",
+    location: "Madagascar | GMT+3",
+    location_title: "Localisation",
+    languages: "Français (natif) | Anglais (courant)",
+    languages_title: "Langues",
     skills_title: "Compétences Techniques",
     experience_title: "Parcours Professionnel",
     cta_title: "Travaillons ensemble",
