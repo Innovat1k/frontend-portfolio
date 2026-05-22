@@ -3,6 +3,7 @@ import { projects } from "@/data/projects";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink, GitFork } from "lucide-react";
 import { content } from "@/lib/content";
+import Image from "next/image";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -70,15 +71,48 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </header>
 
-      {/* Main image / Mockup wrapper */}
+      {/* Main image */}
       <div
-        className="w-full h-80 md:h-112.5 bg-linear-to-br from-muted via-muted/40 to-background rounded-2xl mb-16 
-        flex items-center justify-center border border-border/60 shadow-xl overflow-hidden relative group"
+        className="relative w-full rounded-2xl overflow-hidden border border-border/50 
+      bg-background/40 dark:bg-card/30 backdrop-blur-xl p-4 md:p-6 shadow-xl mb-16"
       >
-        <div className="absolute inset-0 bg-radial from-transparent to-background/20 opacity-60 group-hover:opacity-40 transition-opacity" />
-        <span className="z-10 text-xs font-medium tracking-wider uppercase text-muted-foreground bg-background/90 backdrop-blur-md px-4 py-2 rounded-full border border-border/40 shadow-xs">
-          [{content.projects_page.image}]
-        </span>
+        <div className="relative w-full rounded-2xl mb-6 md:mb-8 overflow-hidden border border-border/50 shadow-lg group bg-zinc-950/20 dark:bg-black/40 p-3 sm:p-6 md:p-8 flex items-center justify-center">
+          <div className="relative w-full max-w-4xl rounded-xl overflow-hidden shadow-2xl border border-border/60 bg-background transition-transform duration-500 ease-out group-hover:scale-[1.01] aspect-video">
+            <Image
+              src={project.image}
+              alt={`Capture d'écran principale de ${project.title}`}
+              fill
+              sizes="(max-width: 768px) 100vw, 1200px"
+              className="object-contain antialiased selection:bg-transparent"
+              priority
+            />
+          </div>
+
+          <div className="absolute inset-0 bg-linear-to-t from-black/5 via-transparent to-transparent opacity-100 pointer-events-none" />
+        </div>
+
+        {/* Secondary gallery */}
+        {project.images && project.images.length > 1 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            {project.images.map((img, i) => (
+              <div
+                key={i}
+                className="relative w-full rounded-xl overflow-hidden border border-border/40 shadow-sm group bg-zinc-950/20 dark:bg-black/30 p-2 sm:p-4 flex items-center justify-center aspect-video"
+              >
+                <div className="relative w-full h-full rounded-lg overflow-hidden border border-border/40 bg-background transition-transform duration-500 group-hover:scale-[1.02]">
+                  <Image
+                    src={img}
+                    alt={`Vue secondaire ${i + 1} de ${project.title}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 600px"
+                    className="object-contain antialiased"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Layout Content + Metrics */}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Project } from "@/types";
 import { ArrowRight } from "lucide-react";
 import { content } from "@/lib/content";
+import Image from "next/image";
 
 interface ProjectCardProps {
   project: Project;
@@ -14,14 +15,22 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 ease-out hover:-translate-y-1 relative"
     >
       {/* Image area with subtle texture */}
-      <div className="relative h-48 bg-linear-to-br from-muted via-muted/60 to-background flex items-center justify-center overflow-hidden border-b border-border/30">
-        {/* Very subtle background grid */}
-        <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-size-[14px_24px]" />
+      <div className="relative h-44 sm:h-48 w-full overflow-hidden border-b border-border/30 bg-zinc-900/40 dark:bg-black/40 flex items-center justify-center p-3 sm:p-4 group-hover/card:bg-zinc-900/20 dark:group-hover/card:bg-black/20 transition-colors duration-500">
+        {/* Superior physical light reflection */}
+        <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/20 dark:via-white/10 to-transparent pointer-events-none z-10" />
 
-        {/* Sunset glow on hover */}
-        <div className="absolute inset-0 bg-linear-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+        <div className="relative w-full h-full rounded-xl overflow-hidden shadow-xs border border-border/50 dark:border-white/5 bg-neutral-950/20 dark:bg-black/20 transition-transform duration-500 ease-out group-hover:scale-[1.02]">
+          <Image
+            src={project.image}
+            alt={`Aperçu du projet ${project.title}`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-contain sm:object-cover sm:object-top antialiased transition-all duration-500"
+            priority={project.featured}
+          />
+        </div>
 
-        <span className="relative z-10 text-[11px] font-bold tracking-wider uppercase text-primary bg-primary/10 border border-primary/20 backdrop-blur-md px-3 py-1 rounded-md shadow-xs">
+        <span className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 text-[9px] sm:text-[10px] font-bold tracking-widest uppercase text-primary bg-background/95 dark:bg-zinc-900/95 border border-border/40 px-2 sm:px-2.5 py-1 rounded-md shadow-xs">
           {project.tags[0]}
         </span>
       </div>
