@@ -194,3 +194,20 @@ html.dark .border-border {
               border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
               color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+@layer utilities {
+  @keyframes floatSunset {
+    0%, 100% {
+      transform: translate(-50%, 0px) scale(1);
+      filter: blur(130px);
+    }
+    50% {
+      transform: translate(-50%, -15px) scale(1.05);
+      filter: blur(145px);
+    }
+  }
+
+  .animate-float-sunset {
+    animation: floatSunset 9s ease-in-out infinite;
+  }
+}

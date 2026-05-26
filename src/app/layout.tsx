@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: content.meta.title,
   description: content.meta.description,
-  authors: [{ name: content.meta.author }],
+  authors: [{ name: "Heïdi Al Ihmid Jeremia" }],
   keywords: content.meta.keywords,
 };
 
@@ -33,9 +33,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div
-            className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-200 h-125 rounded-full blur-[140px] opacity-40 pointer-events-none transition-colors duration-700 ease-in-out -z-10
-            bg-linear-to-b from-primary/30 via-transparent to-transparent 
-          dark:from-orange-500/10 dark:via-transparent dark:to-transparent"
+            className="fixed top-0 left-1/2 -translate-x-1/2 pointer-events-none -z-10
+              w-full max-w-200 h-112.5 rounded-full blur-[120px] 
+              transition-all duration-1000 ease-in-out select-none will-change-transform
+              animate-float-sunset opacity-25 bg-linear-to-b from-amber-500/25 via-orange-400/10 to-amber-500/0
+              dark:opacity-40 dark:bg-linear-to-b dark:from-orange-500/30 dark:via-amber-500/10 dark:to-orange-500/0"
+            aria-hidden="true"
           />
 
           <Header />
