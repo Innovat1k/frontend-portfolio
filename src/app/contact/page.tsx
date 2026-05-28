@@ -12,13 +12,13 @@ export default function ContactPage() {
           <div className="space-y-4 text-center md:text-left">
             <FadeIn delay={0}>
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground text-balance leading-tight">
-                {content.contact_page.title}
+                {content.contact.title}
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.08}>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed antialiased">
-                {content.contact_page.subtitle}
+                {content.contact.subtitle}
               </p>
             </FadeIn>
           </div>

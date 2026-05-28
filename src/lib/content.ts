@@ -34,7 +34,7 @@ export const content = {
   },
 
   // Page Projets (/projects)
-  projects_page: {
+  projects: {
     title: "Mes Projets",
     subtitle:
       "Une sélection de mes réalisations récentes en développement frontend.",
@@ -64,7 +64,7 @@ export const content = {
   },
 
   // Page Contact (/contact)
-  contact_page: {
+  contact: {
     title: "Contact",
     subtitle:
       "Vous avez un projet ou un poste à pourvoir ? \n\n Discutons de la manière dont je peux contribuer à votre équipe.",

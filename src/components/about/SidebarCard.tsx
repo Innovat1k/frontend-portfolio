@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 import { CheckCircle2, MapPin, Globe, Download } from "lucide-react";
 import { LuGithub, LuLinkedin } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
+import { Content } from "@/lib/content";
 
-export default function SidebarCard({ content }: { content: any }) {
+export default function SidebarCard({ content }: { content: Content }) {
   return (
     <aside
       className="

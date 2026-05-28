@@ -1,4 +1,6 @@
-export const skills = [
+import { SkillCategory } from "@/types";
+
+export const skills: SkillCategory[] = [
   {
     category: "Frontend",
     items: ["HTML5 / CSS3", "Javascript", "TypeScript", "Responsive Design"],

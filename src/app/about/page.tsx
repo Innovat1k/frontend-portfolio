@@ -1,6 +1,6 @@
 import { content } from "@/lib/content";
 import { skills } from "@/data/skills";
-import { experiences } from "@/data/experiences";
+import { journey } from "@/data/journey";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import FadeIn from "@/components/ui/FadeIn";
@@ -90,7 +90,7 @@ export default function AboutPage() {
           {content.about.experience_title}
         </h2>
 
-        <Timeline experiences={experiences} />
+        <Timeline journey={journey} />
       </div>
 
       {/* CTA */}

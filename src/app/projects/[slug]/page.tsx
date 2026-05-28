@@ -149,7 +149,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <section className="lg:col-span-2 space-y-6">
           <FadeIn>
             <h2 className="text-2xl font-bold tracking-tight text-foreground">
-              {content.projects_page.slug_title}
+              {content.projects.slug_title}
             </h2>
           </FadeIn>
           <FadeIn delay={0.1}>

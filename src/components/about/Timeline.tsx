@@ -3,17 +3,9 @@
 import { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Calendar } from "lucide-react";
+import { Journey } from "@/types";
 
-interface Experience {
-  id: string | number;
-  role: string;
-  period: string;
-  company: string;
-  description: string;
-  current?: boolean;
-}
-
-export default function Timeline({ experiences }: { experiences: Experience[] }) {
+export default function Timeline({ journey }: { journey: Journey[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -38,7 +30,7 @@ export default function Timeline({ experiences }: { experiences: Experience[] })
         style={{ scaleY }}
       />
 
-      {experiences.map((exp) => (
+      {journey.map((exp) => (
         <div key={exp.id} className="group/exp relative pl-8">
           {/* Line node indicator */}
           {exp.current ? (

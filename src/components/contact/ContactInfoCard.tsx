@@ -1,16 +1,17 @@
 "use client";
 
+import { Content } from "@/lib/content";
 import { motion } from "framer-motion";
 import { Mail, ArrowRight } from "lucide-react";
 import { LuGithub, LuLinkedin } from "react-icons/lu";
 
-export function ContactInfoCard({ content }: { content: any }) {
+export function ContactInfoCard({ content }: { content: Content }) {
   return (
     <div className="p-6 bg-card/50 border border-border/40 rounded-2xl space-y-6 backdrop-blur-xs shadow-xs">
       {/* Section Email Direct */}
       <div className="space-y-3">
         <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-          {content.contact_page.direct_label}
+          {content.contact.direct_label}
         </h3>
 
         <a
@@ -30,7 +31,7 @@ export function ContactInfoCard({ content }: { content: any }) {
               ihmid59@gmail.com
             </span>
             <span className="text-[11px] text-muted-foreground flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0">
-              {content.contact_page.direct_email}{" "}
+              {content.contact.direct_email}{" "}
               <ArrowRight className="w-3 h-3" />
             </span>
           </div>
@@ -40,7 +41,7 @@ export function ContactInfoCard({ content }: { content: any }) {
       {/* Socials */}
       <div className="pt-5 border-t border-border/30">
         <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
-          {content.contact_page.networks_label}
+          {content.contact.networks_label}
         </h3>
 
         <div className="flex gap-3">

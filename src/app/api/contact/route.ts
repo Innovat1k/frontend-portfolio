@@ -58,7 +58,7 @@ export async function POST(request: Request) {
       { message: "Message envoyé avec succès !" },
       { status: 200 },
     );
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Erreur interne du serveur" },
       { status: 500 },

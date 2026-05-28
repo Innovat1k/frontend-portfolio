@@ -1,17 +1,20 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Link from "next/link";
+import ProjectCard from "@/components/projects/ProjectCard";
+import FadeIn from "@/components/ui/FadeIn";
 import { Button } from "@/components/ui/button";
-import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 import { content } from "@/lib/content";
 import { ArrowRight } from "lucide-react";
+import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
 
 export default function Home() {
   const featuredProjects = projects.filter((p) => p.featured);
 
   return (
-    <div className="relative overflow-hidden min-h-screen bg-[#FAF7F2] dark:bg-[#0C0A09] transition-colors duration-500">
+    <div className="relative overflow-hidden min-h-screen bg-background dark:bg-accent transition-colors duration-500">
       <section className="relative z-10 w-full h-[calc(100dvh-64px)] flex flex-col items-center justify-center container mx-auto px-4 text-center">
         <div className="max-w-3xl mx-auto flex flex-col items-center justify-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-balance leading-[1.15] text-stone-900 dark:text-stone-50">
@@ -59,7 +62,7 @@ export default function Home() {
         {/* Scroll micro-indicator */}
         {featuredProjects.length > 0 && (
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce opacity-40 hidden sm:block">
-            <div className="w-5 h-8 border-2 border-stone-400 dark:border-stone-600 rounded-full flex justify-center pt-1.5">
+            <div className="w-5 h-8 border-2 border-stone-400 dark:border-stone-400 rounded-full flex justify-center pt-1.5">
               <div className="w-1 h-1.5 bg-stone-400 dark:bg-stone-600 rounded-full" />
             </div>
           </div>
@@ -98,11 +101,25 @@ export default function Home() {
             </div>
 
             {/* Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredProjects.map((project) => (
-                <ProjectCard key={project.slug} project={project} />
-              ))}
-            </div>
+            <FadeIn>
+              <motion.div
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+              >
+                {featuredProjects.map((project) => (
+                  <motion.div
+                    className="h-full"
+                    variants={staggerItem}
+                    key={project.slug}
+                  >
+                    <ProjectCard project={project} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </FadeIn>
           </div>
         </section>
       )}

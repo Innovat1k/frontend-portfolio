@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectCard from "@/components/projects/ProjectCard";
 import FadeIn from "@/components/ui/FadeIn";
 import { projects } from "@/data/projects";
 import { content } from "@/lib/content";
@@ -12,10 +12,10 @@ export default function ProjectsPage() {
     <section className="container mx-auto px-4 pt-10 md:pt-12 pb-12 md:pb-20 max-w-6xl">
       <FadeIn className="mb-16">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4 text-center md:text-left">
-          {content.projects_page.title}
+          {content.projects.title}
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl text-center md:text-left">
-          {content.projects_page.subtitle}
+          {content.projects.subtitle}
         </p>
       </FadeIn>
 

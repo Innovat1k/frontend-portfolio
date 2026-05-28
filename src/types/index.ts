@@ -12,17 +12,18 @@ export interface Project {
   featured: boolean;
 }
 
-export interface Experience {
+export interface Journey {
   id: string;
   role: string;
   company: string;
   period: string;
   description: string;
+  current?: boolean;
 }
 
 export interface SkillCategory {
   category: string;
-  skills: string[];
+  items: string[];
 }
 
 export interface ContactFormData {

@@ -28,14 +28,14 @@ export default function ContactForm() {
       {/* Name */}
       <div className="space-y-2">
         <label className="text-xs font-bold uppercase tracking-wider text-foreground/70">
-          {content.contact_page.form_name_label}
+          {content.contact.form_name_label}
         </label>
         <input
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder={content.contact_page.form_name_placeholder}
+          placeholder={content.contact.form_name_placeholder}
           className={getInputClass("name")}
         />
         <AnimatePresence>
@@ -46,14 +46,14 @@ export default function ContactForm() {
       {/* Email */}
       <div className="space-y-2">
         <label className="text-xs font-bold uppercase tracking-wider text-foreground/70">
-          {content.contact_page.form_email_label}
+          {content.contact.form_email_label}
         </label>
         <input
           type="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder={content.contact_page.form_email_placeholder}
+          placeholder={content.contact.form_email_placeholder}
           className={getInputClass("email")}
         />
         <AnimatePresence>
@@ -64,14 +64,14 @@ export default function ContactForm() {
       {/* Message */}
       <div className="space-y-2">
         <label className="text-xs font-bold uppercase tracking-wider text-foreground/70">
-          {content.contact_page.form_message_label}
+          {content.contact.form_message_label}
         </label>
         <textarea
           name="message"
           value={formData.message}
           onChange={handleChange}
           rows={5}
-          placeholder={content.contact_page.form_message_placeholder}
+          placeholder={content.contact.form_message_placeholder}
           className={`${getInputClass("message")} resize-none`}
         />
         <AnimatePresence>
@@ -92,7 +92,7 @@ export default function ContactForm() {
             >
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span className="font-medium">
-                {content.contact_page.error_message}
+                {content.contact.error_message}
               </span>
             </motion.div>
           )}
@@ -107,7 +107,7 @@ export default function ContactForm() {
             >
               <CheckCircle className="w-4 h-4 shrink-0" />
               <span className="font-medium">
-                {content.contact_page.success_message}
+                {content.contact.success_message}
               </span>
             </motion.div>
           )}
@@ -142,7 +142,7 @@ export default function ContactForm() {
               className="flex items-center gap-2"
             >
               <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
-              {content.contact_page.sending_state}
+              {content.contact.sending_state}
             </motion.div>
           ) : status === "success" ? (
             <motion.div
@@ -153,7 +153,7 @@ export default function ContactForm() {
               className="flex items-center gap-2"
             >
               <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-              {content.contact_page.success_title}
+              {content.contact.success_title}
             </motion.div>
           ) : (
             <motion.div
@@ -163,7 +163,7 @@ export default function ContactForm() {
               exit={{ opacity: 0 }}
               className="flex items-center justify-center gap-2"
             >
-              {content.contact_page.send_button}
+              {content.contact.send_button}
               <motion.div
                 variants={{
                   hover: { x: 3, y: -1, scale: 1.05 },

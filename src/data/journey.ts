@@ -1,15 +1,8 @@
-export interface Experience {
-  id: string;
-  role: string;
-  company: string;
-  period: string;
-  description: string;
-  current?: boolean;
-}
+import { Journey } from "@/types";
 
-export const experiences: Experience[] = [
+export const journey: Journey[] = [
   {
-    id: "exp-1",
+    id: "jrn-1",
     role: "Focus développement avancé",
     company: "",
     period: "2025 - Aujourd'hui",
@@ -18,7 +11,7 @@ export const experiences: Experience[] = [
     current: true,
   },
   {
-    id: "exp-2",
+    id: "jrn-2",
     role: "Consolidation des compétences",
     company: "",
     period: "2024 - 2025",
@@ -27,7 +20,7 @@ export const experiences: Experience[] = [
     current: false,
   },
   {
-    id: "exp-3",
+    id: "jrn-3",
     role: "Développeur React.js (autodidacte)",
     company: "",
     period: "2023 - 2024",
@@ -36,7 +29,7 @@ export const experiences: Experience[] = [
     current: false,
   },
   {
-    id: "exp-4",
+    id: "jrn-4",
     role: "Apprentissage Javascript",
     company: "",
     period: "2023 - 2024",
@@ -45,7 +38,7 @@ export const experiences: Experience[] = [
     current: false,
   },
   {
-    id: "exp-5",
+    id: "jrn-5",
     role: "Début en développement web",
     company: "",
     period: "2022",
