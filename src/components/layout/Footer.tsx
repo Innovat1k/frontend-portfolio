@@ -26,7 +26,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://linkedin.com/in/"
+            href="https://linkedin.com/in/al-ihmid"
             target="_blank"
             rel="noopener noreferrer"
             className="relative text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-300 py-2 sm:py-1 group/link"

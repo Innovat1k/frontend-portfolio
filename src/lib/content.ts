@@ -46,10 +46,11 @@ export const content = {
   // Page About (/about)
   about: {
     title: "À Propos",
+    name: "Heïdi Al Ihmid Jeremia",
     about_title: "Qui suis-je ?",
     subtitle:
-      "Développeur passionné, orienté résultats et attentif à l’expérience utilisateur.",
-    bio: "Je suis un développeur frontend passionné par la création d’interfaces modernes, interactives et orientées expérience utilisateur. Je travaille principalement avec React et TypeScript, avec un intérêt particulier pour les applications SaaS, les outils de productivité et les systèmes interactifs. \n\n J’accorde une attention particulière à l’architecture frontend, à l’accessibilité et à la fluidité des interactions.",
+      "Développeur frontend, orienté résultats et attentif à l'expérience utilisateur.",
+    bio: "Développeur frontend animé par la création d'interfaces modernes, intuitives et pensées pour l'utilisateur. Je travaille principalement avec React et TypeScript, avec un intérêt marqué pour les applications SaaS, les outils de productivité et les systèmes interactifs.\n\nRigoureux dans mon approche, j'accorde une importance particulière à l'architecture, à l'accessibilité et à la fluidité des interactions — parce qu'un bon produit se ressent autant qu'il se voit.",
     availability:
       "Disponible immédiatement pour un CDI en remote ou des missions freelance.",
     availability_title: "Disponibilité",

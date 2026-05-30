@@ -84,8 +84,8 @@ export default function SidebarCard({ content }: { content: Content }) {
           "
         >
           <a
-            href="/cv.pdf"
-            download="CV_Heïdi_Al_Ihmid_Jeremia.pdf"
+            href="/CV_Al-Ihmid.pdf"
+            download="CV_Al_Ihmid_Frontend_Dev.pdf"
             className="flex items-center justify-center text-xs"
           >
             <motion.div
@@ -120,7 +120,7 @@ export default function SidebarCard({ content }: { content: Content }) {
         </motion.a>
 
         <motion.a
-          href="https://linkedin.com/in/"
+          href="https://linkedin.com/in/al-ihmid"
           target="_blank"
           rel="noreferrer"
           aria-label="Voir mon profil LinkedIn"

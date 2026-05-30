@@ -7,6 +7,7 @@ import FadeIn from "@/components/ui/FadeIn";
 import SidebarCard from "@/components/about/SidebarCard";
 import AnimatedBadge from "@/components/about/AnimatedBadge";
 import Timeline from "@/components/about/Timeline";
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
@@ -26,18 +27,67 @@ export default function AboutPage() {
         </FadeIn>
       </div>
 
-      {/* Bio + Sidebar */}
-      <div className="mb-24 grid grid-cols-1 items-start gap-12 lg:grid-cols-3">
-        <div className="space-y-6 lg:col-span-2 text-center md:text-left">
-          <h2 className="text-2xl font-bold tracking-tight text-foreground">
-            {content.about.about_title}
-          </h2>
+      {/* Main Container */}
+      <div className="mb-24 grid grid-cols-1 lg:grid-cols-3 gap-12 items-start w-full">
+        <div className="lg:col-span-2 flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 w-full">
+          <FadeIn delay={0.1} className="shrink-0 mx-auto md:mx-0">
+            <div className="relative group">
+              <div
+                className="absolute inset-0 bg-linear-to-tr from-amber-500 via-primary to-orange-600 
+                  blur-2xl opacity-0 transition-all duration-700 ease-in-out dark:opacity-25 dark:group-hover:opacity-45 dark:group-hover:scale-110
+                  rounded-3xl dark:rounded-[2rem_1.5rem_2.5rem_2rem]
+                "
+              />
 
-          <p className="whitespace-pre-line text-base leading-relaxed text-muted-foreground antialiased">
-            {content.about.bio}
-          </p>
+              <div
+                className="
+                  relative w-32 h-32 md:w-40 md:h-40 border shadow-xl overflow-hidden transition-all duration-700 ease-in-out
+                  rounded-3xl border-stone-200/60 rotate-0 bg-linear-to-b from-stone-100/80 to-stone-50/30 backdrop-blur-x    
+                  dark:rounded-[2rem_1.5rem_2.5rem_2rem] dark:border-stone-800/80 dark:-rotate-1
+                  dark:bg-linear-to-b dark:from-stone-900/90 dark:to-stone-950/40 dark:backdrop-blur-xs
+                  group-hover:rotate-0 group-hover:border-orange-500/30 dark:group-hover:border-primary/40
+                  group-hover:shadow-2xl group-hover:shadow-orange-500/5
+                "
+              >
+                <Image
+                  src="/images/profile.webp"
+                  alt={content.about.name}
+                  fill
+                  className="object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-in-out
+                    drop-shadow-[0_8px_12px_rgba(0,0,0,0.15)] dark:drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]"
+                  priority
+                />
+              </div>
+            </div>
+          </FadeIn>
+
+          <div className="space-y-4 text-center md:text-left flex flex-col w-full">
+            <h2 className="text-xl md:text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
+              {content.about.about_title}
+            </h2>
+
+            <p className="text-stone-600 dark:text-stone-400 text-center md:text-left leading-relaxed antialiased whitespace-pre-line text-sm sm:text-base">
+              <span
+                className="
+                  font-extrabold tracking-tight select-all inline
+                  bg-linear-to-r bg-clip-text text-transparent
+                from-amber-600 via-orange-600 to-red-700
+                dark:from-amber-400 dark:via-primary dark:to-orange-600
+                "
+              >
+                {content.about.name}
+              </span>
+
+              <span className="text-stone-400 dark:text-stone-600 font-normal mx-2 inline">
+                —
+              </span>
+
+              <span className="inline">{content.about.bio}</span>
+            </p>
+          </div>
         </div>
 
+        {/* Sidebar */}
         <FadeIn delay={0.16}>
           <SidebarCard content={content} />
         </FadeIn>

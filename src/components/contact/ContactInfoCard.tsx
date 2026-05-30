@@ -59,7 +59,7 @@ export function ContactInfoCard({ content }: { content: Content }) {
           </motion.a>
 
           <motion.a
-            href="https://linkedin.com/in/"
+            href="https://linkedin.com/in/al-ihmid"
             target="_blank"
             rel="noreferrer"
             whileHover={{ scale: 1.08, rotate: 6 }}
