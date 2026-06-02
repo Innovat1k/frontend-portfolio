@@ -3,12 +3,14 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { content } from "@/lib/content";
 import { motion, AnimatePresence } from "framer-motion";
+import { useDict } from "../providers/DictProvider";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+
+  const dict = useDict()
 
   useEffect(() => {
     setMounted(true);
@@ -26,7 +28,7 @@ export function ThemeToggle() {
         hover:bg-stone-200/50 hover:border-amber-500/30 hover:shadow-[0_4px_12px_rgba(245,158,11,0.1)]
         dark:border-white/10 dark:bg-white/5 dark:text-stone-200
         dark:hover:bg-white/10 dark:hover:border-amber-500/30 dark:hover:shadow-[0_4px_12px_rgba(245,158,11,0.15)]"
-      aria-label={content.buttons.toggle_theme || "Changer le thème"}
+      aria-label={dict.buttons.toggle_theme || "Changer le thème"}
     >
       {!mounted ? (
         <span className="w-[1.15rem] h-[1.15rem] block opacity-0" />

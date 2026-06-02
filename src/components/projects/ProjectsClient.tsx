@@ -3,19 +3,21 @@
 import { motion } from "framer-motion";
 import ProjectCard from "@/components/projects/ProjectCard";
 import FadeIn from "@/components/ui/FadeIn";
-import { projects } from "@/data/projects";
-import { content } from "@/lib/content";
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
+import { useDict } from "@/components/providers/DictProvider";
+import { Project } from "@/types";
 
-export default function ProjectsPage() {
+export default function ProjectsClient({projects}: { projects: Project[] }) {
+  const dict = useDict();
+
   return (
     <section className="container mx-auto px-4 pt-10 md:pt-12 pb-12 md:pb-20 max-w-6xl">
       <FadeIn className="mb-16">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4 text-center md:text-left">
-          {content.projects.title}
+          {dict.projects.title}
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl text-center md:text-left">
-          {content.projects.subtitle}
+          {dict.projects.subtitle}
         </p>
       </FadeIn>
 

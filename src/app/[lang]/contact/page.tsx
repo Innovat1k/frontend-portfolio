@@ -1,9 +1,16 @@
-import { content } from "@/lib/content";
+import { getDictionary, Lang } from "@/lib/content";
 import ContactForm from "@/components/contact/ContactForm";
 import FadeIn from "@/components/ui/FadeIn";
 import { ContactInfoCard } from "@/components/contact/ContactInfoCard";
 
-export default function ContactPage() {
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ lang: Lang }>;
+}) {
+  const { lang } = await params;
+  const dict = getDictionary(lang);
+
   return (
     <section className="container mx-auto px-4 pt-10 md:pt-12 pb-12 md:pb-20 max-w-6xl relative min-h-screen">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -12,19 +19,19 @@ export default function ContactPage() {
           <div className="space-y-4 text-center md:text-left">
             <FadeIn delay={0}>
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground text-balance leading-tight">
-                {content.contact.title}
+                {dict.contact.title}
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.08}>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed antialiased">
-                {content.contact.subtitle}
+                {dict.contact.subtitle}
               </p>
             </FadeIn>
           </div>
 
           <FadeIn delay={0.16}>
-            <ContactInfoCard content={content} />
+            <ContactInfoCard content={dict} />
           </FadeIn>
         </div>
 

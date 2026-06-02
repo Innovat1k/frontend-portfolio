@@ -1,6 +1,5 @@
-import { content } from "@/lib/content";
-import { skills } from "@/data/skills";
-import { journey } from "@/data/journey";
+import { getSkills } from "@/data/skills";
+// import { journey } from "@/data/journey/journey.fr";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import FadeIn from "@/components/ui/FadeIn";
@@ -8,21 +7,33 @@ import SidebarCard from "@/components/about/SidebarCard";
 import AnimatedBadge from "@/components/about/AnimatedBadge";
 import Timeline from "@/components/about/Timeline";
 import Image from "next/image";
+import { getDictionary, Lang } from "@/lib/content";
+import { getJourney } from "@/data/journey";
 
-export default function AboutPage() {
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ lang: Lang }>;
+}) {
+  const { lang } = await params;
+  const dict = getDictionary(lang);
+
+  const skills = getSkills(lang);
+  const journey = getJourney(lang);
+
   return (
     <section className="container relative mx-auto max-w-6xl px-4 pt-10 md:pt-12 pb-12 md:pb-20">
       {/* Header */}
       <div className="mb-8 border-b border-border/30 pb-8 text-center md:text-left">
         <FadeIn delay={0}>
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-balance text-foreground md:text-5xl">
-            {content.about.title}
+            {dict.about.title}
           </h1>
         </FadeIn>
 
         <FadeIn delay={0.08}>
           <p className="max-w-2xl text-base text-muted-foreground antialiased sm:text-lg">
-            {content.about.subtitle}
+            {dict.about.subtitle}
           </p>
         </FadeIn>
       </div>
@@ -51,7 +62,7 @@ export default function AboutPage() {
               >
                 <Image
                   src="/images/profile.webp"
-                  alt={content.about.name}
+                  alt={dict.about.name}
                   fill
                   className="object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-in-out
                     drop-shadow-[0_8px_12px_rgba(0,0,0,0.15)] dark:drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]"
@@ -63,7 +74,7 @@ export default function AboutPage() {
 
           <div className="space-y-4 text-center md:text-left flex flex-col w-full">
             <h2 className="text-xl md:text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
-              {content.about.about_title}
+              {dict.about.about_title}
             </h2>
 
             <p className="text-stone-600 dark:text-stone-400 text-center md:text-left leading-relaxed antialiased whitespace-pre-line text-sm sm:text-base">
@@ -75,28 +86,28 @@ export default function AboutPage() {
                 dark:from-amber-400 dark:via-primary dark:to-orange-600
                 "
               >
-                {content.about.name}
+                {dict.about.name}
               </span>
 
               <span className="text-stone-400 dark:text-stone-600 font-normal mx-2 inline">
                 —
               </span>
 
-              <span className="inline">{content.about.bio}</span>
+              <span className="inline">{dict.about.bio}</span>
             </p>
           </div>
         </div>
 
         {/* Sidebar */}
         <FadeIn delay={0.16}>
-          <SidebarCard content={content} />
+          <SidebarCard content={dict} />
         </FadeIn>
       </div>
 
       {/* Skills */}
       <div className="mb-24">
         <h2 className="mb-8 text-2xl font-bold tracking-tight text-foreground">
-          {content.about.skills_title}
+          {dict.about.skills_title}
         </h2>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -137,7 +148,7 @@ export default function AboutPage() {
       {/* Experience Timeline */}
       <div className="mb-24">
         <h2 className="mb-10 text-2xl font-bold tracking-tight text-foreground">
-          {content.about.experience_title}
+          {dict.about.experience_title}
         </h2>
 
         <Timeline journey={journey} />
@@ -168,7 +179,7 @@ export default function AboutPage() {
             tracking-tight text-balance md:text-3xl
           "
         >
-          {content.about.cta_title}
+          {dict.about.cta_title}
         </h2>
 
         <p
@@ -177,11 +188,11 @@ export default function AboutPage() {
             text-sm text-muted-foreground antialiased md:text-base
           "
         >
-          {content.about.cta_desc}
+          {dict.about.cta_desc}
         </p>
 
         <Link
-          href="/contact"
+          href={`/${lang}/contact`}
           className="
             btn-sunset relative z-10 inline-flex items-center gap-2
             rounded-xl px-8 py-3 font-semibold text-white
@@ -189,7 +200,7 @@ export default function AboutPage() {
             hover:-translate-y-0.5 hover:shadow-lg
           "
         >
-          {content.hero.cta_secondary}
+          {dict.hero.cta_secondary}
           <ArrowRight className="h-4 w-4" />
         </Link>
       </div>

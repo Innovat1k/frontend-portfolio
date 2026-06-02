@@ -5,12 +5,16 @@ import Link from "next/link";
 import ProjectCard from "@/components/projects/ProjectCard";
 import FadeIn from "@/components/ui/FadeIn";
 import { Button } from "@/components/ui/button";
-import { projects } from "@/data/projects";
-import { content } from "@/lib/content";
 import { ArrowRight } from "lucide-react";
 import { staggerContainer, staggerItem } from "@/lib/animations/stagger";
+import { useDict } from "@/components/providers/DictProvider";
+import { useLangSwitcher } from "@/components/ui/LanguageToggle/useLangSwitcher";
+import { Project } from "@/types";
 
-export default function Home() {
+export default function HomeClient({ projects }: { projects: Project[] }) {
+  const dict = useDict();
+  const { localePath } = useLangSwitcher();
+
   const featuredProjects = projects.filter((p) => p.featured);
 
   return (
@@ -18,14 +22,14 @@ export default function Home() {
       <section className="relative z-10 w-full h-[calc(100dvh-64px)] flex flex-col items-center justify-center container mx-auto px-4 text-center">
         <div className="max-w-3xl mx-auto flex flex-col items-center justify-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-balance leading-[1.15] text-stone-900 dark:text-stone-50">
-            {content.hero.title.split(" ").slice(0, -2).join(" ")}{" "}
+            {dict.hero.title.split(" ").slice(0, -2).join(" ")}{" "}
             <span className="bg-linear-to-r from-primary via-primary/90 to-amber-500 bg-clip-text text-transparent">
-              {content.hero.title.split(" ").slice(-2).join(" ")}
+              {dict.hero.title.split(" ").slice(-2).join(" ")}
             </span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-stone-600 dark:text-stone-400 mb-10 max-w-2xl mx-auto leading-relaxed antialiased">
-            {content.hero.subtitle}
+            {dict.hero.subtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto px-4 sm:px-0">
@@ -35,10 +39,10 @@ export default function Home() {
               className="btn-sunset text-white px-8 w-full sm:w-auto font-bold shadow-sunset-sm hover:shadow-sunset-md transition-all duration-300 ease-out hover:-translate-y-0.5"
             >
               <Link
-                href="/projects"
+                href={localePath("/projects")}
                 className="inline-flex items-center gap-2 justify-center"
               >
-                {content.hero.cta_primary}
+                {dict.hero.cta_primary}
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
@@ -54,7 +58,9 @@ export default function Home() {
                 backdrop-blur-md hover:-translate-y-0.5
               "
             >
-              <Link href="/contact">{content.hero.cta_secondary}</Link>
+              <Link href={localePath("/contact")}>
+                {dict.hero.cta_secondary}
+              </Link>
             </Button>
           </div>
         </div>
@@ -77,10 +83,10 @@ export default function Home() {
             <div className="flex flex-col items-center text-center md:items-start md:text-left mb-14 gap-5 w-full max-w-3xl">
               <div className="space-y-3">
                 <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-stone-900 dark:text-stone-50">
-                  {content.projects_section.title}
+                  {dict.projects_section.title}
                 </h2>
                 <p className="text-sm md:text-base text-stone-600 dark:text-stone-400 max-w-xl leading-relaxed">
-                  {content.projects_section.subtitle}
+                  {dict.projects_section.subtitle}
                 </p>
               </div>
 
@@ -94,7 +100,7 @@ export default function Home() {
                   href="/projects"
                   className="inline-flex items-center gap-1.5"
                 >
-                  {content.projects_section.view_all}
+                  {dict.projects_section.view_all}
                   <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                 </Link>
               </Button>

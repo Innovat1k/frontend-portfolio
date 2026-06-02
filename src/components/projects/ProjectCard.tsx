@@ -3,15 +3,19 @@
 import Link from "next/link";
 import { Project } from "@/types";
 import { ArrowRight } from "lucide-react";
-import { content } from "@/lib/content";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useDict } from "../providers/DictProvider";
+import { useLangSwitcher } from "../ui/LanguageToggle/useLangSwitcher";
 
 interface ProjectCardProps {
   project: Project;
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const dict = useDict();
+  const { localePath } = useLangSwitcher();
+
   return (
     <motion.article
       className="group flex flex-col h-full bg-card border border-border/40 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 relative"
@@ -93,12 +97,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
           {/* Link to the project */}
           <Link
-            href={`/projects/${project.slug}`}
+            href={localePath(`/projects/${project.slug}`)}
             className="inline-flex items-center gap-1 text-sm font-semibold text-muted-foreground group-hover:text-primary transition-colors duration-200"
           >
-            <span className="sr-only">{content.buttons.view_details}</span>
+            <span className="sr-only">{dict.buttons.view_details}</span>
             <span className="hidden sm:inline text-xs font-medium tracking-wide text-foreground/80 group-hover:text-primary transition-colors">
-              {content.buttons.view_details}
+              {dict.buttons.view_details}
             </span>
             <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-transform duration-300 group-hover:translate-x-1" />
           </Link>

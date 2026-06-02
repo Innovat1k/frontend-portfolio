@@ -1,21 +1,27 @@
 import Link from "next/link";
-import { projects } from "@/data/projects";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink, GitFork } from "lucide-react";
-import { content } from "@/lib/content";
 import Image from "next/image";
 import FadeIn from "@/components/ui/FadeIn";
+import { getDictionary, Lang } from "@/lib/content";
+import { getProjects } from "@/data/projects";
+import BackButton from "@/components/ui/backButton";
 
 interface ProjectPageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: Lang; slug: string }>;
 }
 
-export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
-}
+// export function generateStaticParams() {
+//   return projects.map((project) => ({ slug: project.slug }));
+// }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
+
+  const dict = getDictionary(lang);
+
+  const projects = getProjects(lang);
+
   const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
 
@@ -25,29 +31,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <header className="mb-12 md:mb-16">
           <div className="w-full mb-6 md:mb-8">
             <div className="relative flex flex-col items-center text-center gap-4 sm:flex-row sm:items-baseline sm:text-left sm:gap-6 md:gap-8">
-              {/* Back button */}
-              <div className="absolute left-0 top-1 sm:relative sm:top-auto sm:left-auto sm:shrink-0">
-                <Link
-                  href="/projects"
-                  className="
-                  inline-flex items-center justify-center gap-2 text-sm font-medium 
-                  text-muted-foreground hover:text-foreground transition-all duration-300
-                  
-                  /* Mobile UI : Carré discret et flouté */
-                  w-9 h-9 rounded-lg bg-muted/10 border border-border/30 backdrop-blur-md
-                  
-                  /* Desktop UI : Nettoyage des styles et alignement texte */
-                  sm:w-auto sm:h-auto sm:bg-transparent sm:border-none sm:backdrop-blur-none sm:py-1 sm:px-0 
-                  group
-                "
-                  aria-label={content.buttons.back}
-                >
-                  <ArrowLeft className="w-4 h-4 transition-transform duration-300 ease-out group-hover:-translate-x-1" />
-                  <span className="hidden sm:inline">
-                    {content.buttons.back}
-                  </span>
-                </Link>
-              </div>
+              <BackButton dict={dict} />
 
               <h1
                 className="
@@ -81,7 +65,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               className="btn-sunset inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white 
               shadow-sunset-sm hover:shadow-sunset-md transition-all duration-300 ease-out hover:-translate-y-0.5 select-none w-full sm:w-auto text-sm sm:text-base"
             >
-              <span>{content.buttons.view_demo}</span>
+              <span>{dict.buttons.view_demo}</span>
               <ExternalLink className="w-4 h-4" />
             </a>
 
@@ -95,7 +79,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               hover:bg-muted hover:text-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 select-none
               w-full sm:w-auto text-sm sm:text-base"
             >
-              <span>{content.buttons.view_code}</span>
+              <span>{dict.buttons.view_code}</span>
               <GitFork className="w-4 h-4" />
             </a>
           </div>
@@ -144,12 +128,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </FadeIn>
 
-      {/* Text content and scroll metrics */}
+      {/* Text dict and scroll metrics */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
         <section className="lg:col-span-2 space-y-6">
           <FadeIn>
             <h2 className="text-2xl font-bold tracking-tight text-foreground">
-              {content.projects.slug_title}
+              {dict.projects.slug_title}
             </h2>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -165,7 +149,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <FadeIn>
               <div className="p-6 rounded-2xl bg-muted/30 border border-border/40 backdrop-blur-xs space-y-6">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-foreground/80">
-                  {content.metrics.features}
+                  {dict.metrics.features}
                 </h3>
 
                 <div className="flex flex-col gap-4">

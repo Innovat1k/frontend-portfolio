@@ -1,6 +1,7 @@
 import { Project } from "@/types";
 
-export const projects: Project[] = [
+// French translation
+export const projects_fr: Project[] = [
   {
     slug: "cmd-pal",
     title: "CommandPal",

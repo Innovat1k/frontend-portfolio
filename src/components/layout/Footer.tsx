@@ -1,6 +1,6 @@
-import { content } from "@/lib/content";
+import { Content, getDictionary, Lang } from "@/lib/content";
 
-export default function Footer() {
+export default async function Footer({ dict }: { dict: Content }) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
         <p className="text-sm text-stone-600 dark:text-stone-400 text-center sm:text-left antialiased tracking-wide leading-relaxed">
           © {currentYear} Heïdi Al Ihmid Jeremia.{" "}
           <span className="block sm:inline mt-1 sm:mt-0 opacity-80 sm:opacity-100">
-            {content.footer.all_rights}
+            {dict.footer.all_rights}
           </span>
         </p>
 
@@ -21,7 +21,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="relative text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-300 py-2 sm:py-1 group/link"
           >
-            {content.footer.github}
+            {dict.footer.github}
             <span className="absolute bottom-1 sm:bottom-0 left-0 w-full h-px bg-amber-500 scale-x-0 group-hover/link:scale-x-100 transition-transform duration-300 origin-left" />
           </a>
 
@@ -31,7 +31,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="relative text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-300 py-2 sm:py-1 group/link"
           >
-            {content.footer.linkedin}
+            {dict.footer.linkedin}
             <span className="absolute bottom-1 sm:bottom-0 left-0 w-full h-px bg-amber-500 scale-x-0 group-hover/link:scale-x-100 transition-transform duration-300 origin-left" />
           </a>
         </div>

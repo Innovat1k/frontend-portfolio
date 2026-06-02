@@ -1,6 +1,6 @@
 import { Journey } from "@/types";
 
-export const journey: Journey[] = [
+export const journey_fr: Journey[] = [
   {
     id: "jrn-1",
     role: "Focus développement avancé",
