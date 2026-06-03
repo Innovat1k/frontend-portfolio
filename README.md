@@ -14,10 +14,9 @@
 
 ---
 
-## 🌐 Live Demo / Live Demo
+## 🌐 Live Demo
 
-👉 **Déploiement en cours — disponible bientôt**   
-👉 **Deployment in progress — available soon**
+👉 **[Visit Portfolio →](https://al-ihmid.vercel.app)**
 
 ---
 

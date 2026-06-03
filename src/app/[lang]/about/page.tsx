@@ -67,6 +67,7 @@ export default async function AboutPage({
                   className="object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-in-out
                     drop-shadow-[0_8px_12px_rgba(0,0,0,0.15)] dark:drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]"
                   priority
+                  sizes="(max-width: 768px) 100vw, 400px"
                 />
               </div>
             </div>
