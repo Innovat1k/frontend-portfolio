@@ -72,4 +72,36 @@ export const projects_en: Project[] = [
     repoUrl: "https://github.com/Innovat1k/wisecho",
     featured: false,
   },
+  {
+    slug: "flowui",
+    title: "FlowUI",
+    description:
+      "3-step onboarding funnel with system-aware theming, WCAG AA accessibility, and E2E testing.",
+    longDescription:
+      "FlowUI is a multi-step onboarding funnel built with Next.js and TypeScript. It uses Jotai for state management with sessionStorage persistence, Framer Motion for transitions, and Zod for form validation. The project implements automatic light/dark mode synchronization via Tailwind v4 native media queries without a toggle, ensuring WCAG AA compliance across both themes. It includes a GitHub Actions CI pipeline with Playwright E2E tests, Vitest unit tests, and bundle size verification.",
+    image: "/images/projects/flowui/cover.webp",
+    images: [
+    "/images/projects/flowui/screen-feature.webp",
+    "/images/projects/flowui/screen-mobile.webp",
+    ],
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Jotai",
+      "Framer Motion",
+      "Playwright",
+      "WCAG AA",
+      "Tailwind Css",
+      "CI/CD",
+    ],
+    metrics: [
+      { label: "Lighthouse", value: "95+ Desktop" },
+      { label: "Bundle Size", value: "< 200KB JS" },
+      { label: "Testing", value: "E2E + Unit Tests" },
+      { label: "Accessibility", value: "WCAG AA Verified" },
+    ],
+    demoUrl: "https://flowui-kappa.vercel.app",
+    repoUrl: "https://github.com/Innovat1k/flowui",
+    featured: true,
+  },
 ];
