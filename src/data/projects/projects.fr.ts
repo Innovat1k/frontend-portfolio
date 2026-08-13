@@ -72,4 +72,36 @@ export const projects_fr: Project[] = [
     repoUrl: "https://github.com/Innovat1k/wisecho",
     featured: false,
   },
+  {
+  slug: "flowui",
+  title: "FlowUI",
+  description:
+    "Tunnel d'onboarding en 3 étapes avec thème adaptatif, accessibilité WCAG AA et tests E2E.",
+  longDescription:
+    "FlowUI est un tunnel d'onboarding multi-étapes développé avec Next.js et TypeScript. Il utilise Jotai pour la gestion d'état avec persistance sessionStorage, Framer Motion pour les transitions et Zod pour la validation des formulaires. Le projet implémente une synchronisation automatique du thème clair/sombre via les media queries natives de Tailwind v4, sans toggle, garantissant la conformité WCAG AA dans les deux thèmes. Il inclut une pipeline CI GitHub Actions avec des tests E2E Playwright, des tests unitaires Vitest et une vérification de la taille du bundle.",
+  image: "/images/projects/flowui/cover.webp",
+  images: [
+    "/images/projects/flowui/screen-feature.webp",
+    "/images/projects/flowui/screen-mobile.webp",
+  ],
+  tags: [
+    "Next.js",
+    "TypeScript",
+    "Jotai",
+    "Framer Motion",
+    "Playwright",
+    "WCAG AA",
+    "Tailwind Css",
+    "CI/CD",
+  ],
+  metrics: [
+    { label: "Lighthouse", value: "95+ Desktop" },
+    { label: "Taille du bundle", value: "< 200 Ko JS" },
+    { label: "Tests", value: "E2E + Unitaires" },
+    { label: "Accessibilité", value: "WCAG AA vérifié" },
+  ],
+  demoUrl: "https://TA-VRAIE-URL.vercel.app",
+  repoUrl: "https://github.com/Innovat1k/flowui",
+  featured: true,
+}
 ];
