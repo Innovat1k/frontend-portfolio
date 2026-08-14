@@ -1,6 +1,5 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ExternalLink, GitFork } from "lucide-react";
+import { ExternalLink, GitFork } from "lucide-react";
 import Image from "next/image";
 import FadeIn from "@/components/ui/FadeIn";
 import { getDictionary, Lang } from "@/lib/content";
@@ -10,10 +9,6 @@ import BackButton from "@/components/ui/backButton";
 interface ProjectPageProps {
   params: Promise<{ lang: Lang; slug: string }>;
 }
-
-// export function generateStaticParams() {
-//   return projects.map((project) => ({ slug: project.slug }));
-// }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { lang, slug } = await params;

@@ -2,14 +2,12 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import ScrollButton from "./ScrollButton";
 
-// Mock de window.scrollTo
 Object.defineProperty(window, "scrollTo", {
   writable: true,
   configurable: true,
   value: vi.fn(),
 });
 
-// Mock de scrollHeight
 Object.defineProperty(document.documentElement, "scrollHeight", {
   writable: true,
   configurable: true,

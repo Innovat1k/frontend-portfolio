@@ -1,4 +1,4 @@
-import { Content, getDictionary, Lang } from "@/lib/content";
+import { Content } from "@/lib/content";
 
 export default async function Footer({ dict }: { dict: Content }) {
   const currentYear = new Date().getFullYear();
