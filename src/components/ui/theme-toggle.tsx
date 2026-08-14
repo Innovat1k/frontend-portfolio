@@ -10,9 +10,11 @@ export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  const dict = useDict()
+  const dict = useDict();
 
   useEffect(() => {
+    // next-themes requires client mounting before reading the resolved theme
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
